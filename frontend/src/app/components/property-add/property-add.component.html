@@ -1,0 +1,47 @@
+<div class="container mt-5">
+  <h2>Añadir Propiedad</h2>
+
+  <form (ngSubmit)="onSubmit()" #addForm="ngForm" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label>Título</label>
+      <input class="form-control" [(ngModel)]="property.title" name="title" required />
+    </div>
+
+    <div class="mb-3">
+      <label>Dirección</label>
+      <input class="form-control" [(ngModel)]="property.address" name="address" />
+    </div>
+
+    <div class="mb-3">
+      <label>Descripción</label>
+      <textarea class="form-control" [(ngModel)]="property.description" name="description" required></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label>Precio (€)</label>
+      <input type="number" class="form-control" [(ngModel)]="property.price" name="price" required />
+    </div>
+
+    <div class="mb-3">
+      <label>Ciudad</label>
+      <input class="form-control" [(ngModel)]="property.city" name="city" required />
+    </div>
+
+    <div class="mb-3">
+      <label>Tipo</label>
+      <input class="form-control" [(ngModel)]="property.type" name="type" required />
+    </div>
+
+    <div class="mb-3">
+      <label>Código Postal</label>
+      <input type="number" class="form-control" [(ngModel)]="property.cp" name="cp" required />
+    </div>
+
+    <div class="mb-3">
+      <label>Subir imágenes</label>
+      <input type="file" class="form-control" (change)="onFileChange($event)" multiple />
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="addForm.invalid">Crear Propiedad</button>
+  </form>
+</div>

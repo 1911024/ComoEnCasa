@@ -1,0 +1,38 @@
+# Usa PHP con Apache
+FROM php:8.2-apache
+
+# Instala dependencias necesarias
+RUN apt-get update && apt-get install -y \
+    libzip-dev zip unzip git curl libicu-dev libpq-dev libonig-dev libpng-dev \
+    && docker-php-ext-install intl pdo pdo_mysql zip opcache
+
+# Activa mod_rewrite de Apache (muy importante para Symfony)
+RUN a2enmod rewrite
+
+# Copia composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# Establece la carpeta de trabajo
+WORKDIR /var/www/html
+
+# Copia el código del proyecto
+COPY . /var/www/html
+
+# Instala dependencias PHP
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+
+# Configura permisos correctos para Symfony
+RUN chown -R www-data:www-data /var/www/html/var /var/www/html/vendor /var/www/html/public
+
+# Expone el puerto que Railway espera
+EXPOSE 8080
+
+# Configura Apache para escuchar en el puerto 8080 (que es el que Railway usa)
+ENV APACHE_PORT=8080
+
+# Cambia la configuración por defecto de Apache para Symfony (public es la raíz)
+RUN sed -i "s|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|g" /etc/apache2/sites-available/000-default.conf
+
+# Comando por defecto (no hace falta cambiar nada, Apache se lanza solo)
+CMD ["apache2-foreground"]
+

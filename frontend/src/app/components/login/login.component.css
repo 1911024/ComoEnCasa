@@ -1,0 +1,96 @@
+/* src/app/components/login/login.component.css */
+
+/* COPIA Y PEGA TODO EL CONTENIDO DE register.component.css AQUÍ */
+/* Asegúrate de que este archivo tenga los mismos estilos que register.component.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+form {
+    max-width: 600px;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.form-body {
+    margin-bottom: 15px;
+}
+
+.form-body label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-body input[type="text"],
+.form-body input[type="email"],
+.form-body input[type="password"],
+.form-body select,
+.form-body textarea {
+    width: 100%;
+    padding: 10px; /* Aumentado padding para mejor apariencia */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Asegura que padding no aumente el ancho total */
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 50px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #a70600;
+}
+
+
+.required {
+    color: red;
+    margin-left: 5px;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.form-link-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.95em;
+    color: #555;
+}
+
+.form-link-text a {
+    color: #c62828; /* Color del enlace */
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-link-text a:hover {
+    text-decoration: underline;
+}

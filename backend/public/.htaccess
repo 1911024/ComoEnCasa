@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Si el archivo o directorio solicitado existe, lo sirve tal cual
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # Si no, redirige todo a index.php (Symfony)
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>

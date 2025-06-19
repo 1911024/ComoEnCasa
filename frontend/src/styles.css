@@ -1,0 +1,105 @@
+html body {
+  background-color: #ffffff;
+  color: #333;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  height: 100%;
+}  
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 40px; /* Ajusta según la altura de tu navbar */
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+main {
+  flex: 1;
+  padding-top: 40px; /* o el alto exacto del navbar */
+}
+
+.container {
+  max-width: 1200px;
+}
+
+a {
+  color: #c62828;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+header {
+  background-color: #c62828;
+  color: #fff;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+button {
+  background-color: #c62828;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+/* Tarjetas (como las propiedades) */
+.property-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para el detalle */
+.property-detail {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #fafafa;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+.property-detail h2 {
+  color: #c62828;
+  margin-bottom: 1rem;
+}
+
+.property-detail img {
+  width: 100%;
+  max-width: 600px;
+  margin: 1rem auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .property-detail, .property-card {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  header {
+    font-size: 1.2rem;
+  }
+}

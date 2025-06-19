@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg custom-navbar mb-5">
+  <div class="container-fluid justify-content-center">
+    <a class="navbar-brand custom-logo" href="/">Como En Casa</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav align-items-center gap-3">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact">Contacto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about">Sobre Nosotros</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isLoggedIn() && authService.isAdmin()">
+          <a class="nav-link" routerLink="/propertyAdd">Añadir Propiedad</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isLoggedIn()">
+          <a class="nav-link" routerLink="/favorites" routerLinkActive="active">Favoritos</a>
+        </li>
+
+        <!-- 👤 Imagen del usuario al loguearse -->
+        <li class="nav-item" *ngIf="authService.isLoggedIn()">
+          <img src="assets/logo_usuario.png" class="avatar" alt="Usuario" title="Perfil" (click)="goToProfile()" />
+        </li>
+
+        <!-- Botones de sesión -->
+        <li *ngIf="!authService.isLoggedIn()">
+          <button (click)="goToLogin()">Iniciar sesión</button>
+        </li>
+        <li *ngIf="!authService.isLoggedIn()">
+          <button (click)="goToRegister()">Crear Cuenta</button>
+        </li>
+        <li *ngIf="authService.isLoggedIn()">
+          <button (click)="logout()">Cerrar Sesión</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
