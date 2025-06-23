@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/af3fea81-e3a5-4375-beaa-89f6f5579658/resourceGroups/ComoEnCasa_group-831f/providers/Microsoft.Web/sites/ComoEnCasa",
-    "appService.deploySubpath": "."
-}
